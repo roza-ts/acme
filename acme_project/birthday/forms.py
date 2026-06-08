@@ -19,10 +19,11 @@ class BirthdayForm(forms.ModelForm):
         # В аргументе validators указываем список или кортеж 
         # валидаторов этого поля (валидаторов может быть несколько).
         validators=(real_age,),
-    ) 
+    )
 
     class Meta:
         model = Birthday
+        exclude = ('author',)
         fields = '__all__'
         widgets = {
             'birthday': forms.DateInput(
